@@ -23,6 +23,7 @@ export async function onRequest(context) {
         para: params,
         id: params.id || "no id gotten",
         myData: await fetchText(token),
+        request: request,
       })
     );
   } catch (e) {
