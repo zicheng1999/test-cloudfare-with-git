@@ -1,13 +1,13 @@
 <template>
   <div class="home">
     <div>Test Cloud Function</div>
-    <div>{{ now }}</div>
+    <div>{{ getCurrent }}</div>
   </div>
 </template>
 
 <script setup lang="ts">
 import Axios from "axios";
-import { onBeforeMount, ref } from "vue";
+import { onBeforeMount, ref, computed } from "vue";
 
 const now = ref(new Date());
 async function getTasks(id: string) {
@@ -18,6 +18,9 @@ async function getTasks(id: string) {
   );
   return result;
 }
+const getCurrent = computed(() => {
+  return now.value;
+});
 
 onBeforeMount(async () => {
   const res = await getTasks("testid_001");

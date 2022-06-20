@@ -9,8 +9,8 @@ async function fetchText(token: string) {
     },
     method: "GET",
   });
-  return "hi";
-  // return await response.text();
+
+  return await response.text();
 }
 export async function onRequest(context) {
   const { request, env, params } = context;
