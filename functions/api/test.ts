@@ -10,5 +10,5 @@ export async function onRequest(context) {
     data, // arbitrary space for passing data between middlewares
   } = context;
 
-  return new Response("Variable: " + env.MY_ENV_VAR);
+  return new Response("Variable: " + env.CLICK_UP_TOKEN);
 }
