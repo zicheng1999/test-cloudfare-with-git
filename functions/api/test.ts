@@ -9,7 +9,8 @@ async function fetchText(token: string) {
     },
     method: "GET",
   });
-  return await response.text();
+  return "hi";
+  // return await response.text();
 }
 export async function onRequest(context) {
   const { request, env, params } = context;
@@ -22,7 +23,6 @@ export async function onRequest(context) {
         para: params,
         id: params.id || "no id gotten",
         myData: await fetchText(token),
-        req: request,
       })
     );
   } catch (e) {
