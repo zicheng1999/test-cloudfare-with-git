@@ -14,17 +14,17 @@ async function getTasks(id: string) {
   console.log("id", id);
 
   const result = await Axios.get(
-    "https://test-cloudfare-with-git.pages.dev/api/test",
-    {
-      params: { id: id },
-    }
+    "https://test-cloudfare-with-git.pages.dev/api/test"
+    // {
+    //   params: { id: id },
+    // }
   );
   return result;
 }
 
 onBeforeMount(async () => {
   console.log("in onBeforeMount");
-  const res = await getTasks("test id");
+  const res = await getTasks("testid_001");
   console.log("res", res);
 });
 </script>
