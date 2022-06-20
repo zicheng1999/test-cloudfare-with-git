@@ -1,7 +1,6 @@
 <template>
   <div class="home">
     <div>Test Cloud Function</div>
-    <div>{{ getCurrent }}</div>
     <div>Timer: {{ timer }}</div>
     <div>Click Up Data</div>
     <div>{{ getResp }}</div>
@@ -14,7 +13,7 @@ import { onBeforeMount, ref, computed } from "vue";
 
 const timer = ref<number>(0);
 const resp = ref("");
-const now = ref(new Date());
+
 async function getTasks(id: string) {
   console.log("id", id);
 
@@ -23,9 +22,6 @@ async function getTasks(id: string) {
   );
   return result;
 }
-const getCurrent = computed(() => {
-  return now.value;
-});
 
 const getResp = computed(() => {
   return resp.value;
