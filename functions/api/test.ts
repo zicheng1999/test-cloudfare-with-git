@@ -12,7 +12,13 @@ export async function onRequest(context) {
         para: params,
         id: params.id || "no id gotten",
         cat: myData,
-      })
+      }),
+      {
+        headers: {
+          "Access-Control-Allow-Origin": "*",
+          "Access-Control-Allow-Credentials": "true",
+        },
+      }
     );
   } catch (e) {
     return new Response(
