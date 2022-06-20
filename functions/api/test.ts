@@ -18,22 +18,19 @@ export async function onRequest(context) {
   try {
     const taskListId = "152199949";
     const apiGetTasks = `https://api.clickup.com/api/v2/list/${taskListId}/task`;
-    const dealerListId = "6c299cb2-95a0-42d9-9772-04a4afd9de31";
-    const operator = "=";
+    // const dealerListId = "6c299cb2-95a0-42d9-9772-04a4afd9de31";
+    // const operator = "=";
 
-    const dealerId = params.id || "c89f3d59-05a1-4fc5-9875-50b3294af7b5";
-    const filterDealerData: IFilterDealerData = {
-      field_id: dealerListId,
-      operator: operator,
-      value: dealerId,
-    };
+    const dealerId = "c89f3d59-05a1-4fc5-9875-50b3294af7b5";
+    // const filterDealerData: IFilterDealerData = {
+    //   field_id: dealerListId,
+    //   operator: operator,
+    //   value: dealerId,
+    // };
     const token = env.CLICK_UP_TOKEN;
     const config = {
       headers: {
         Authorization: token ? token : "",
-      },
-      params: {
-        custom_fields: JSON.stringify([filterDealerData]),
       },
     };
 
@@ -42,7 +39,7 @@ export async function onRequest(context) {
     return new Response(
       JSON.stringify({
         token: env.CLICK_UP_TOKEN,
-        other: "test data",
+        other: "test data 0806",
         tasks: tasks,
       })
     );
