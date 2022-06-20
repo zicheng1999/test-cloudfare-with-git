@@ -7,6 +7,10 @@ export async function onRequest(context) {
   try {
     return new Response(
       JSON.stringify({
+        headers: {
+          "Access-Control-Allow-Origin": "*",
+          "Access-Control-Allow-Credentials": true,
+        },
         token: token,
         other: "test data 0806",
         para: params,
@@ -16,6 +20,10 @@ export async function onRequest(context) {
   } catch (e) {
     return new Response(
       JSON.stringify({
+        headers: {
+          "Access-Control-Allow-Origin": "*",
+          "Access-Control-Allow-Credentials": true,
+        },
         token: token,
         para: params.id,
         error: e,
