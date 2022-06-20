@@ -1,7 +1,6 @@
 <template>
   <div class="home">
-    <div>Test Cloud Function</div>
-    <div>Timer: {{ timer }}</div>
+    <div>Timer: {{ getTimer }}</div>
     <div>Click Up Data</div>
     <div>{{ getResp }}</div>
   </div>
@@ -27,6 +26,9 @@ const getResp = computed(() => {
   return resp.value;
 });
 
+const getTimer = computed(() => {
+  return timer.value;
+});
 onBeforeMount(async () => {
   startTimer();
   const res = await getTasks("testid_001");
