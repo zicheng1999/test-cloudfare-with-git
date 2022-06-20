@@ -26,5 +26,18 @@ onBeforeMount(async () => {
   console.log("in onBeforeMount");
   const res = await getTasks("testid_001");
   console.log("res", res);
+
+  fetchText();
 });
+
+async function fetchText() {
+  console.log("In fetch text");
+  let response = await fetch("https://catfact.ninja/fact");
+  console.log(response);
+
+  if (response.status === 200) {
+    let data = await response.text();
+    console.log("data", data);
+  }
+}
 </script>

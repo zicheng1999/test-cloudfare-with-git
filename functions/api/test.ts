@@ -1,5 +1,3 @@
-import Axios from "axios";
-
 export async function onRequest(context) {
   const { env, params } = context;
   const token = env.CLICK_UP_TOKEN;
