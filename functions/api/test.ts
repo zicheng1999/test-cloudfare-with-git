@@ -17,5 +17,5 @@ export async function onRequest(context) {
     env: env.CLICK_UP_TOKEN,
   };
   const info = JSON.stringify(result);
-  return new Response(result);
+  return new Response(info);
 }
