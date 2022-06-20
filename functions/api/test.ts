@@ -5,28 +5,14 @@ interface IFilterDealerData {
   value: string;
 }
 export async function onRequest(context) {
-  // Contents of context object
-  const {
-    request, // same as existing Worker API
-    env, // same as existing Worker API
-    params, // if filename includes [id] or [[path]]
-    waitUntil, // same as ctx.waitUntil in existing Worker API
-    next, // used for middleware or to fetch assets
-    data, // arbitrary space for passing data between middlewares
-  } = context;
+  const { env, params } = context;
 
   try {
     const taskListId = "152199949";
     const apiGetTasks = `https://api.clickup.com/api/v2/list/${taskListId}/task`;
-    // const dealerListId = "6c299cb2-95a0-42d9-9772-04a4afd9de31";
-    // const operator = "=";
 
     const dealerId = "c89f3d59-05a1-4fc5-9875-50b3294af7b5";
-    // const filterDealerData: IFilterDealerData = {
-    //   field_id: dealerListId,
-    //   operator: operator,
-    //   value: dealerId,
-    // };
+
     const token = env.CLICK_UP_TOKEN;
     const config = {
       headers: {
@@ -34,19 +20,21 @@ export async function onRequest(context) {
       },
     };
 
-    const tasks = (await Axios.get(apiGetTasks, config)).data.tasks;
+    // const tasks = (await Axios.get(apiGetTasks, config)).data;
 
     return new Response(
       JSON.stringify({
         token: env.CLICK_UP_TOKEN,
         other: "test data 0806",
-        tasks: tasks,
+        // tasks: tasks,
+        para: params.id,
       })
     );
   } catch (e) {
     return new Response(
       JSON.stringify({
         token: env.CLICK_UP_TOKEN,
+        para: params.id,
         error: e,
       })
     );
