@@ -5,7 +5,15 @@ export async function onRequest(context) {
   const token = env.CLICK_UP_TOKEN;
 
   try {
-    return new Response("Ok");
+    return new Response(
+      JSON.stringify({
+        token: token,
+        other: "test data 0806",
+        para: params,
+        id: params.id || "no id gotten",
+        cat: (await Axios.get("https://catfact.ninja/fact")).data,
+      })
+    );
   } catch (e) {
     return new Response(
       JSON.stringify({
