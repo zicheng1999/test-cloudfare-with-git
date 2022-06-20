@@ -10,12 +10,5 @@ export async function onRequest(context) {
     data, // arbitrary space for passing data between middlewares
   } = context;
 
-  const res = await Axios.get(`https://rickandmortyapi.com/api/character/1`);
-  const resJson = await res.data();
-  const result = {
-    data: resJson,
-    env: env.CLICK_UP_TOKEN,
-  };
-  const info = JSON.stringify(result);
-  return new Response(info);
+  return new Response("Variable: " + env.MY_ENV_VAR);
 }
