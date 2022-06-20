@@ -17,6 +17,7 @@ async function getTasks(id: string) {
 
 onBeforeUnmount(async () => {
   console.log("in onBeforeMount");
-  await getTasks("test id");
+  const res = await getTasks("test id");
+  console.log("res", res);
 });
 </script>
