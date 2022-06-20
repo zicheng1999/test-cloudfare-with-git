@@ -28,11 +28,11 @@ const getResp = computed(() => {
 });
 
 onBeforeMount(async () => {
+  startTimer();
   const res = await getTasks("testid_001");
   console.log("res.data", res.data);
   console.log("res.data.myData", JSON.parse(res.data.myData));
-  resp.value = res.data;
-  startTimer();
+  resp.value = JSON.parse(res.data.myData);
 });
 
 function startTimer() {
