@@ -2,6 +2,7 @@
   <div class="home">
     <div>Test Cloud Function</div>
     <div>{{ getCurrent }}</div>
+    <div>Click Up Data</div>
     <div>{{ getResp }}</div>
   </div>
 </template>
