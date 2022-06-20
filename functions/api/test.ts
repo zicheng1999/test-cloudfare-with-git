@@ -10,5 +10,12 @@ export async function onRequest(context) {
     data, // arbitrary space for passing data between middlewares
   } = context;
 
+  const res = await fetch(
+    `https://rickandmortyapi.com/api/character/${params.id}`
+  );
+  const redJson = await res.json();
+  const info = JSON.stringify(redJson);
+  return new Response(info);
+
   return new Response(env.CLICK_UP_TOKEN);
 }
