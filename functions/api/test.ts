@@ -21,7 +21,7 @@ export async function onRequest(context) {
     const dealerListId = "6c299cb2-95a0-42d9-9772-04a4afd9de31";
     const operator = "=";
 
-    const dealerId = params.id || "";
+    const dealerId = params.id || "c89f3d59-05a1-4fc5-9875-50b3294af7b5";
     const filterDealerData: IFilterDealerData = {
       field_id: dealerListId,
       operator: operator,
