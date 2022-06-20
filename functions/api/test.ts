@@ -1,5 +1,13 @@
-async function fetchText() {
-  const response = await fetch("https://catfact.ninja/fact");
+async function fetchText(token: string) {
+  const taskListId = "152199949";
+  const apiGetTasks = `https://api.clickup.com/api/v2/list/${taskListId}/task`;
+
+  const response = await fetch(apiGetTasks, {
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: token ? token : "",
+    },
+  });
   return await response.text();
 }
 export async function onRequest(context) {
@@ -12,7 +20,7 @@ export async function onRequest(context) {
         other: "test data 0806",
         para: params,
         id: params.id || "no id gotten",
-        myData: await fetchText(),
+        myData: await fetchText(token),
       })
     );
   } catch (e) {
