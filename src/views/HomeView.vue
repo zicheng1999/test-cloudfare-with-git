@@ -15,11 +15,8 @@ async function getTasks(id: string) {
 
   const result = await Axios.get(
     "https://test-cloudfare-with-git.pages.dev/api/test"
-    // {
-    //   params: { id: id },
-    // }
   );
-  return result;
+  return result.data;
 }
 
 onBeforeMount(async () => {
