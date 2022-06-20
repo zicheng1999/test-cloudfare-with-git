@@ -10,5 +10,19 @@ export async function onRequest(context) {
     data, // arbitrary space for passing data between middlewares
   } = context;
 
-  return new Response("Variable: " + env.CLICK_UP_TOKEN);
+  try {
+    return new Response(
+      JSON.stringify({
+        token: env.CLICK_UP_TOKEN,
+        other: "test data",
+      })
+    );
+  } catch (e) {
+    return new Response(
+      JSON.stringify({
+        token: env.CLICK_UP_TOKEN,
+        error: e,
+      })
+    );
+  }
 }
