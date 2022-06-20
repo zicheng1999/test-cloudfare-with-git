@@ -5,16 +5,7 @@ export async function onRequest(context) {
   const token = env.CLICK_UP_TOKEN;
 
   try {
-    return new Response(
-      JSON.stringify({
-        headers: {
-          "Access-Control-Allow-Origin": "*",
-          "Access-Control-Allow-Credentials": true,
-        },
-        token: token,
-        para: params.id || "no param.id",
-      })
-    );
+    return new Response("Ok");
   } catch (e) {
     return new Response(
       JSON.stringify({
