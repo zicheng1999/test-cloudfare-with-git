@@ -14,11 +14,11 @@ export async function onRequest(context) {
     const dealerId = "c89f3d59-05a1-4fc5-9875-50b3294af7b5";
 
     const token = env.CLICK_UP_TOKEN;
-    const config = {
-      headers: {
-        Authorization: token ? token : "",
-      },
-    };
+    // const config = {
+    //   headers: {
+    //     Authorization: token ? token : "",
+    //   },
+    // };
 
     // const tasks = (await Axios.get(apiGetTasks, config)).data;
 
