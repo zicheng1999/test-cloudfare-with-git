@@ -11,7 +11,7 @@ async function fetchText(token: string) {
   return await response.text();
 }
 export async function onRequest(context) {
-  const { env, params } = context;
+  const { request, env, params } = context;
   const token = env.CLICK_UP_TOKEN;
   try {
     return new Response(
@@ -21,6 +21,7 @@ export async function onRequest(context) {
         para: params,
         id: params.id || "no id gotten",
         myData: await fetchText(token),
+        req: request,
       })
     );
   } catch (e) {
