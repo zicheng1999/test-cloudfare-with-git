@@ -1,6 +1,6 @@
 <template>
   <div class="home">
-    <div>Cloud Function</div>
+    <div>Test Cloud Function</div>
   </div>
 </template>
 
