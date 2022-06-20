@@ -12,7 +12,7 @@ export async function onRequest(context) {
         other: "test data 0806",
         para: params,
         id: params.id || "no id gotten",
-        myData: fetchText(),
+        myData: await fetchText(),
       })
     );
   } catch (e) {
