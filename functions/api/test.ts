@@ -12,9 +12,7 @@ export async function onRequest(context) {
           "Access-Control-Allow-Credentials": true,
         },
         token: token,
-        other: "test data 0806",
-        para: params,
-        id: params.id,
+        para: params.id || "no param.id",
       })
     );
   } catch (e) {
