@@ -25,5 +25,6 @@ async function getTasks(id: string) {
 onBeforeMount(async () => {
   const res = await getTasks("testid_001");
   console.log("res.data", res.data);
+  console.log("res.data.myData", JSON.parse(res.data.myData));
 });
 </script>
