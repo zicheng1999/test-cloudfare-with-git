@@ -7,6 +7,7 @@ async function fetchText(token: string) {
       "Content-Type": "application/json",
       Authorization: token ? token : "",
     },
+    method: "GET",
   });
   return await response.text();
 }
