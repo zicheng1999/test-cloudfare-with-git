@@ -17,5 +17,5 @@ export async function onRequest(context) {
   const info = JSON.stringify(redJson);
   return new Response(info);
 
-  return new Response(env.CLICK_UP_TOKEN);
+  // return new Response(env.CLICK_UP_TOKEN);
 }
