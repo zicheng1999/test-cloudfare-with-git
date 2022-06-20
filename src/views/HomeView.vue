@@ -27,7 +27,7 @@ onBeforeMount(async () => {
   const res = await getTasks("testid_001");
   console.log("res", res);
 
-  fetchText();
+  // fetchText();
 });
 
 async function fetchText() {
